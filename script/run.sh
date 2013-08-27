@@ -1,6 +1,9 @@
 #!/bin/bash
 # httpclientandroidlib version
-HTTPCLIENTANDROIDLIB_VER=1.1.2
+
+HTTPCLIENTANDROIDLIB_VER=1.2
+ANDROIDSDKPATH=/home/aidan/android-sdk-linux
+
 # Checkout svn repositories of core/client/cache
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/4.2.5/httpcore/ httpcore
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.2.5/httpclient/ httpclient
@@ -19,7 +22,6 @@ PACKAGENAME=ch.boye.httpclientandroidlib
 ROOTDIR=`pwd`
 PACKAGEDIR=${ROOTDIR}/${PROJECTNAME}/src/${PACKAGENAME//./\/}
 ANDROIDPROJECTPATH=${ROOTDIR}/${PROJECTNAME}
-ANDROIDSDKPATH=/home/aidan/android-sdk-linux
 
 # Create Android library project
 rm -Rf ${ANDROIDPROJECTPATH}
