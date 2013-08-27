@@ -1,3 +1,7 @@
+Purpose
+=============
+This project was designed to allow you to use newer versions of the Apache HTTP Components in your Android projects. If you try to use a newer JAR from Apache in your project, it overlaps with the one built into the Android SDK (which is out of date, too). This project fixes that by using different package names for everything.
+
 Depedencies
 =============
 1. Android SDK
