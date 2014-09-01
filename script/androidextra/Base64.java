@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package sedpackagename.androidextra;
+package android.util;
 
 import java.io.UnsupportedEncodingException;
 
@@ -492,10 +492,6 @@ public class Base64 {
      */
     public static byte[] encode(byte[] input, int flags) {
         return encode(input, 0, input.length, flags);
-    }
-
-    public static byte[] encode(byte[] input, boolean chunked, int flags) {
-	return encode(input, DEFAULT);
     }
 
     /**
