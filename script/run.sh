@@ -1,14 +1,14 @@
 #!/bin/bash
 # httpclientandroidlib version
 
-HTTPCLIENTANDROIDLIB_VER=1.2
+HTTPCLIENTANDROIDLIB_VER=4.3.2
 ANDROIDSDKPATH=/home/aidan/android-sdk-linux
 
 # Checkout svn repositories of core/client/cache
-svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/4.2.5/httpcore/ httpcore
-svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.2.5/httpclient/ httpclient
-svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.2.5/httpclient-cache/ httpclient-cache
-svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.2.5/httpmime/ httpmime
+svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/4.3.2/httpcore/ httpcore
+svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.3.2/httpclient/ httpclient
+svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.3.2/httpclient-cache/ httpclient-cache
+svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.3.2/httpmime/ httpmime
 
 # Delete all .svn directories
 find . -type d -name ".svn" -exec rm -Rf {} +
