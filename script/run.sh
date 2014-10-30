@@ -7,14 +7,14 @@ ANDROID_API_TARGET=21
 
 if [ ! -d "${ANDROIDSDKPATH}" ]; then
   if [ -d "/Applications/Android Studio.app/sdk" ]; then
-    printf "\n\nSDK path not set, defaulting to Android Studio's SDK directory in '/Applications/Android Studio.app/sdk'.\n"
+    printf "\nSDK path not set, defaulting to Android Studio's SDK directory in '/Applications/Android Studio.app/sdk'.\n"
   else
-    printf "\n\nPlease set your SDK path in the script file!\n"
+    printf "\nPlease set your SDK path in the script file!\n"
     exit
   fi
 fi
 
-prinf "\n >>> Building for HTTP core ${HTTPCOREANDROIDLIB_VER}, HTTP client ${HTTPCLIENTANDROIDLIB_VER}, with Android API target ${ANDROID_API_TARGET}…\n\n"
+printf "\n >>> Building for HTTP core ${HTTPCOREANDROIDLIB_VER}, HTTP client ${HTTPCLIENTANDROIDLIB_VER}, with Android API target ${ANDROID_API_TARGET}…\n\n"
 
 # Checkout svn repositories of core/client/cache
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/${HTTPCOREANDROIDLIB_VER}/httpcore/ httpcore
