@@ -36,8 +36,8 @@ PACKAGEDIR="${ROOTDIR}/${PROJECTNAME}/src/${PACKAGENAME//./\/}"
 ANDROIDPROJECTPATH="${ROOTDIR}/${PROJECTNAME}"
 
 # Create Android library project
-rm -Rf ${ANDROIDPROJECTPATH}
-${ANDROIDSDKPATH}/tools/android create lib-project -n ${PROJECTNAME} -t android-${ANDROID_API_TARGET} -p ${ANDROIDPROJECTPATH} -k ${PACKAGENAME}
+rm -Rf "${ANDROIDPROJECTPATH}"
+"${ANDROIDSDKPATH}"/tools/android create lib-project -n ${PROJECTNAME} -t android-${ANDROID_API_TARGET} -p ${ANDROIDPROJECTPATH} -k ${PACKAGENAME}
 
 # Create package directory
 mkdir -p ${PACKAGEDIR}
@@ -60,7 +60,7 @@ cd ${PACKAGEDIR}
 
 # Add androidextra.HttpClientAndroidLog to the package
 mkdir androidextra
-cp ${ROOTDIR}/androidextra/* androidextra
+cp "${ROOTDIR}/androidextra/*" androidextra
 cd androidextra
 find . -name "*.java" -exec sed -i "s/sedpackagename/${PACKAGENAME}/g" {} +
 cd ..
@@ -107,10 +107,10 @@ find . -name "*.java" -exec sed -i "s/org\.apache\.http/${PACKAGENAME}/g" {} +
 cd ${ANDROIDPROJECTPATH}
 sed -i "s/ACTIVITY_ENTRY_NAME/${PROJECTNAME}/g" AndroidManifest.xml
 sed -i '/<\/project>/ i <path id="android\.libraries\.src"><path refid="project\.libraries\.src" \/><\/path><path id="android\.libraries\.jars"><path refid="project\.libraries\.jars" \/><\/path>' build.xml
-cd ${ROOTDIR}
+cd "${ROOTDIR}"
 tar cvfz httpclientandroidlib-${HTTPCLIENTANDROIDLIB_VER}.tar.gz httpclientandroidlib
 cd ${ANDROIDPROJECTPATH}
 ant release
 cd bin
-mv classes.jar ${ROOTDIR}/${PROJECTNAME}-${HTTPCLIENTANDROIDLIB_VER}.jar
-cd ${ROOTDIR}
+mv classes.jar "${ROOTDIR}/${PROJECTNAME}-${HTTPCLIENTANDROIDLIB_VER}.jar"
+cd "${ROOTDIR}"
