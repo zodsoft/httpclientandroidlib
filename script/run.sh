@@ -1,5 +1,4 @@
 #!/bin/bash
-# httpclientandroidlib version
 
 HTTPCOREANDROIDLIB_VER=4.3.3
 HTTPCLIENTANDROIDLIB_VER=4.3.5
@@ -10,6 +9,8 @@ if [ ! -d "${ANDROIDSDKPATH}" ]; then
   echo "\n${ANDROIDSDKPATH} does not exist! Please set your ANDROIDSDKPATH!\n"
   exit
 fi
+
+echo "\nBuilding for HTTP core ${HTTPCOREANDROIDLIB_VER}, HTTP client ${HTTPCLIENTANDROIDLIB_VER}, with Android API target ${ANDROID_API_TARGET}…\n"
 
 # Checkout svn repositories of core/client/cache
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/${HTTPCOREANDROIDLIB_VER}/httpcore/ httpcore
