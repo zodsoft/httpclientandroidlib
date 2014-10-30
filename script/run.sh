@@ -6,6 +6,11 @@ HTTPCLIENTANDROIDLIB_VER=4.3.5
 ANDROIDSDKPATH=/home/aidan/android-sdk-linux
 ANDROID_API_TARGET=21
 
+if [ ! -d "${ANDROIDSDKPATH}" ]; then
+  echo "${ANDROIDSDKPATH} does not exist! Please set your ANDROIDSDKPATH!"
+  exit
+fi
+
 # Checkout svn repositories of core/client/cache
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/${HTTPCOREANDROIDLIB_VER}/httpcore/ httpcore
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/${HTTPCLIENTANDROIDLIB_VER}/httpclient/ httpclient
