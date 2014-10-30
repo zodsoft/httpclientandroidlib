@@ -7,7 +7,7 @@ ANDROIDSDKPATH=/home/aidan/android-sdk-linux
 ANDROID_API_TARGET=21
 
 if [ ! -d "${ANDROIDSDKPATH}" ]; then
-  echo "${ANDROIDSDKPATH} does not exist! Please set your ANDROIDSDKPATH!"
+  echo "\n${ANDROIDSDKPATH} does not exist! Please set your ANDROIDSDKPATH!\n"
   exit
 fi
 
