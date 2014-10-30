@@ -32,8 +32,8 @@ rm -Rf httpclient-cache/src/main/java/org/apache/http/impl/client/cache/memcache
 PROJECTNAME=httpclientandroidlib
 PACKAGENAME=ch.boye.httpclientandroidlib
 ROOTDIR=`pwd`
-PACKAGEDIR=${ROOTDIR}/${PROJECTNAME}/src/${PACKAGENAME//./\/}
-ANDROIDPROJECTPATH=${ROOTDIR}/${PROJECTNAME}
+PACKAGEDIR="${ROOTDIR}/${PROJECTNAME}/src/${PACKAGENAME//./\/}"
+ANDROIDPROJECTPATH="${ROOTDIR}/${PROJECTNAME}"
 
 # Create Android library project
 rm -Rf ${ANDROIDPROJECTPATH}
