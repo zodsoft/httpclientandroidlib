@@ -8,7 +8,7 @@ ANDROID_API_TARGET=21
 if [ ! -d "${ANDROIDSDKPATH}" ]; then
   if [ -d "/Applications/Android Studio.app/sdk" ]; then
     printf "\nSDK path not set, defaulting to Android Studio's SDK directory in '/Applications/Android Studio.app/sdk'.\n"
-    ANDROIDSDKPATH = "/Applications/Android\ Studio.app/sdk"
+    ANDROIDSDKPATH="/Applications/Android\ Studio.app/sdk"
   else
     printf "\nPlease set your SDK path in the script file!\n"
     exit
