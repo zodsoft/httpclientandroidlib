@@ -6,11 +6,11 @@ ANDROIDSDKPATH=/home/aidan/android-sdk-linux
 ANDROID_API_TARGET=21
 
 if [ ! -d "${ANDROIDSDKPATH}" ]; then
-  echo "\n${ANDROIDSDKPATH} does not exist! Please set your ANDROIDSDKPATH!\n"
+  printf "\n\n${ANDROIDSDKPATH} does not exist! Please set your ANDROIDSDKPATH!\n\n"
   exit
 fi
 
-echo "\nBuilding for HTTP core ${HTTPCOREANDROIDLIB_VER}, HTTP client ${HTTPCLIENTANDROIDLIB_VER}, with Android API target ${ANDROID_API_TARGET}…\n"
+echo "\n >>> Building for HTTP core ${HTTPCOREANDROIDLIB_VER}, HTTP client ${HTTPCLIENTANDROIDLIB_VER}, with Android API target ${ANDROID_API_TARGET}…\n\n"
 
 # Checkout svn repositories of core/client/cache
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/${HTTPCOREANDROIDLIB_VER}/httpcore/ httpcore
