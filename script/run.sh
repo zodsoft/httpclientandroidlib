@@ -1,14 +1,15 @@
 #!/bin/bash
 # httpclientandroidlib version
 
-HTTPCLIENTANDROIDLIB_VER=4.3.2
+HTTPCLIENTANDROIDLIB_VER=4.3.5
 ANDROIDSDKPATH=/home/aidan/android-sdk-linux
+ANDROID_API_TARGET=21
 
 # Checkout svn repositories of core/client/cache
-svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/4.3.2/httpcore/ httpcore
-svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.3.2/httpclient/ httpclient
-svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.3.2/httpclient-cache/ httpclient-cache
-svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/4.3.2/httpmime/ httpmime
+svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/${HTTPCLIENTANDROIDLIB_VER}/httpcore/ httpcore
+svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/${HTTPCLIENTANDROIDLIB_VER}/httpclient/ httpclient
+svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/${HTTPCLIENTANDROIDLIB_VER}/httpclient-cache/ httpclient-cache
+svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/${HTTPCLIENTANDROIDLIB_VER}/httpmime/ httpmime
 
 # Delete all .svn directories
 find . -type d -name ".svn" -exec rm -Rf {} +
@@ -25,7 +26,7 @@ ANDROIDPROJECTPATH=${ROOTDIR}/${PROJECTNAME}
 
 # Create Android library project
 rm -Rf ${ANDROIDPROJECTPATH}
-${ANDROIDSDKPATH}/tools/android create lib-project -n ${PROJECTNAME} -t android-18 -p ${ANDROIDPROJECTPATH} -k ${PACKAGENAME}
+${ANDROIDSDKPATH}/tools/android create lib-project -n ${PROJECTNAME} -t android-${ANDROID_API_TARGET} -p ${ANDROIDPROJECTPATH} -k ${PACKAGENAME}
 
 # Create package directory
 mkdir -p ${PACKAGEDIR}
