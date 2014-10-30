@@ -2,12 +2,16 @@
 
 HTTPCOREANDROIDLIB_VER=4.3.3
 HTTPCLIENTANDROIDLIB_VER=4.3.5
-ANDROIDSDKPATH=/home/aidan/android-sdk-linux
+ANDROIDSDKPATH=hello
 ANDROID_API_TARGET=21
 
 if [ ! -d "${ANDROIDSDKPATH}" ]; then
-  printf "\n\n${ANDROIDSDKPATH} does not exist! Please set your ANDROIDSDKPATH!\n\n"
-  exit
+  if [ -d "/Applications/Android Studio.app/sdk" ]; then
+    printf "\n\nSDK path not set, defaulting to Android Studio's SDK directory in '/Applications/Android Studio.app/sdk'.\n\n"
+  else
+    printf "\n\nPlease set your SDK path in the script file!\n\n"
+    exit
+  fi
 fi
 
 echo "\n >>> Building for HTTP core ${HTTPCOREANDROIDLIB_VER}, HTTP client ${HTTPCLIENTANDROIDLIB_VER}, with Android API target ${ANDROID_API_TARGET}…\n\n"
