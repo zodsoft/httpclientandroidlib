@@ -1,12 +1,13 @@
 #!/bin/bash
 # httpclientandroidlib version
 
+HTTPCOREANDROIDLIB_VER=4.3.3
 HTTPCLIENTANDROIDLIB_VER=4.3.5
 ANDROIDSDKPATH=/home/aidan/android-sdk-linux
 ANDROID_API_TARGET=21
 
 # Checkout svn repositories of core/client/cache
-svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/${HTTPCLIENTANDROIDLIB_VER}/httpcore/ httpcore
+svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpcore/tags/${HTTPCOREANDROIDLIB_VER}/httpcore/ httpcore
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/${HTTPCLIENTANDROIDLIB_VER}/httpclient/ httpclient
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/${HTTPCLIENTANDROIDLIB_VER}/httpclient-cache/ httpclient-cache
 svn checkout http://svn.apache.org/repos/asf/httpcomponents/httpclient/tags/${HTTPCLIENTANDROIDLIB_VER}/httpmime/ httpmime
