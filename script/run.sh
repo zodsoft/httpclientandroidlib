@@ -8,6 +8,7 @@ ANDROID_API_TARGET=21
 if [ ! -d "${ANDROIDSDKPATH}" ]; then
   if [ -d "/Applications/Android Studio.app/sdk" ]; then
     printf "\nSDK path not set, defaulting to Android Studio's SDK directory in '/Applications/Android Studio.app/sdk'.\n"
+    ANDROIDSDKPATH = "/Applications/Android\ Studio.app/sdk"
   else
     printf "\nPlease set your SDK path in the script file!\n"
     exit
@@ -32,12 +33,13 @@ rm -Rf httpclient-cache/src/main/java/org/apache/http/impl/client/cache/memcache
 PROJECTNAME=httpclientandroidlib
 PACKAGENAME=ch.boye.httpclientandroidlib
 ROOTDIR=`pwd`
-PACKAGEDIR="${ROOTDIR}/${PROJECTNAME}/src/${PACKAGENAME//./\/}"
-ANDROIDPROJECTPATH="${ROOTDIR}/${PROJECTNAME}"
+ROOTDIR=${ROOTDIR/ /\/ }
+PACKAGEDIR=${ROOTDIR}/${PROJECTNAME}/src/${PACKAGENAME//./\/}
+ANDROIDPROJECTPATH=${ROOTDIR}/${PROJECTNAME}
 
 # Create Android library project
-rm -Rf "${ANDROIDPROJECTPATH}"
-"${ANDROIDSDKPATH}"/tools/android create lib-project -n ${PROJECTNAME} -t android-${ANDROID_API_TARGET} -p ${ANDROIDPROJECTPATH} -k ${PACKAGENAME}
+rm -Rf ${ANDROIDPROJECTPATH}
+${ANDROIDSDKPATH}/tools/android create lib-project -n ${PROJECTNAME} -t android-${ANDROID_API_TARGET} -p ${ANDROIDPROJECTPATH} -k ${PACKAGENAME}
 
 # Create package directory
 mkdir -p ${PACKAGEDIR}
@@ -60,7 +62,7 @@ cd ${PACKAGEDIR}
 
 # Add androidextra.HttpClientAndroidLog to the package
 mkdir androidextra
-cp "${ROOTDIR}/androidextra/*" androidextra
+cp ${ROOTDIR}/androidextra/* androidextra
 cd androidextra
 find . -name "*.java" -exec sed -i "s/sedpackagename/${PACKAGENAME}/g" {} +
 cd ..
@@ -107,10 +109,10 @@ find . -name "*.java" -exec sed -i "s/org\.apache\.http/${PACKAGENAME}/g" {} +
 cd ${ANDROIDPROJECTPATH}
 sed -i "s/ACTIVITY_ENTRY_NAME/${PROJECTNAME}/g" AndroidManifest.xml
 sed -i '/<\/project>/ i <path id="android\.libraries\.src"><path refid="project\.libraries\.src" \/><\/path><path id="android\.libraries\.jars"><path refid="project\.libraries\.jars" \/><\/path>' build.xml
-cd "${ROOTDIR}"
+cd ${ROOTDIR}
 tar cvfz httpclientandroidlib-${HTTPCLIENTANDROIDLIB_VER}.tar.gz httpclientandroidlib
 cd ${ANDROIDPROJECTPATH}
 ant release
 cd bin
-mv classes.jar "${ROOTDIR}/${PROJECTNAME}-${HTTPCLIENTANDROIDLIB_VER}.jar"
-cd "${ROOTDIR}"
+mv classes.jar ${ROOTDIR}/${PROJECTNAME}-${HTTPCLIENTANDROIDLIB_VER}.jar
+cd ${ROOTDIR}
